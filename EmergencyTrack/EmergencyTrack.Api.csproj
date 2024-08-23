@@ -11,4 +11,8 @@
     <Folder Include="Extensions\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CSharpFunctionalExtensions" Version="2.42.5" />
+  </ItemGroup>
+
 </Project>

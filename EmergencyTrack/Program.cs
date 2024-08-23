@@ -1,4 +1,5 @@
-using EmergencyTrack.Components;
+using EmergencyTrack;
+using EmergencyTrack.Api.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

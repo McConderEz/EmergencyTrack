@@ -1,5 +1,6 @@
 ﻿using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
+using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,11 @@ namespace EmergencyTrack.Domain.Models
     {
         private EmergencyStation(EmergencyStationId id) : base(id) { }
 
-        public string StationNumber { get; set; }
+        public StationNumber StationNumber { get; private set; }
         public DistrictId DistrictId { get; set; }
         public int CountOfEmployees { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address { get; set; }
+        public PhoneNumber PhoneNumber { get; private set; }
+        public Address Address { get; private set; }
 
         public List<AmbulanceRequest> AmbulanceRequests { get; set; } = [];
     }
