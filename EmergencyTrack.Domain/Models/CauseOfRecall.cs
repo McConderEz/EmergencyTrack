@@ -1,5 +1,6 @@
 ﻿using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
+using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace EmergencyTrack.Domain.Models
     {
         private CauseOfRecall(CauseOfRecallId id): base(id) { }
 
-        public string Cause { get; set; }
+        public Cause Cause { get; private set; }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
+using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace EmergencyTrack.Domain.Models
     {
         private ProcedurePerformed(ProcedurePerformedId id) : base(id) { }
 
-        public decimal Price { get; set; }
+        public Price Price { get; private set; }
         public List<Procedure> Procedures { get; set; } = [];
     }
 }

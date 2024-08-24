@@ -14,9 +14,9 @@ namespace EmergencyTrack.Domain.Models
         private SickPerson(SickPersonId id) : base(id) { }
 
         public FullName FullName { get; private set; }
-        public DateOnly BirthDate { get; set; }
-        public SocialStatusId SocialStatusId { get; set; }
-        public SocialStatus? SocialStatus { get; set; }
+        public BirthDate BirthDate { get;  private set; }
+        public SocialStatusId SocialStatusId { get; private set; }
+        public SocialStatus? SocialStatus { get; private set; }
         public PhoneNumber PhoneNumber { get; private set; }
         public Address Address { get; private set; }
     }

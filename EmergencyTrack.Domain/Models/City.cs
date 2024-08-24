@@ -1,5 +1,6 @@
 ﻿using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
+using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace EmergencyTrack.Domain.Models
     {
         private City(CityId id) : base(id) { }
 
-        public string Title { get; set; }
+        public Title Title { get; private set; }
     }
 }
