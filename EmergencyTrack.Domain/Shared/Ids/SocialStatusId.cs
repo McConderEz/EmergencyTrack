@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Shared.Ids
 {
-    public class SocialStatusId(Guid id):BaseId<SocialStatusId>(id);
+    public class SocialStatusId(Guid id) : BaseId<SocialStatusId>(id);
 }

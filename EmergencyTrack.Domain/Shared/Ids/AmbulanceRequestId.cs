@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Shared.Ids
 {
-    public class AmbulanceRequestId(Guid id): BaseId<AmbulanceRequestId>(id);
+    public class AmbulanceRequestId(Guid id) : BaseId<AmbulanceRequestId>(id);
 
 }

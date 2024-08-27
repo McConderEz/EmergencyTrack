@@ -13,6 +13,12 @@ namespace EmergencyTrack.Domain.Models
     {
         private ProcedurePerformed(ProcedurePerformedId id) : base(id) { }
 
+        public ProcedurePerformed(ProcedurePerformedId id, Price price, IEnumerable<Procedure> procedures) : base(id)
+        {
+            Price = price;
+            Procedures = procedures.ToList() ?? [];
+        }
+
         public Price Price { get; private set; }
         public List<Procedure> Procedures { get; set; } = [];
     }

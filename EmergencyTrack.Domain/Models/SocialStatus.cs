@@ -13,6 +13,11 @@ namespace EmergencyTrack.Domain.Models
     {
         private SocialStatus(SocialStatusId id) : base(id) { }
 
+        public SocialStatus(SocialStatusId id,Status status) : base(id)
+        {
+            Status = status;
+        }
+
         public Status Status { get; private set; }
     }
 }

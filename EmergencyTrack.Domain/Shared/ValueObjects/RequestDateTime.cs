@@ -11,7 +11,7 @@ namespace EmergencyTrack.Domain.Shared.ValueObjects
     {
         public DateTime Time { get; }
 
-        private RequestDateTime() { } 
+        private RequestDateTime() { }
 
         private RequestDateTime(DateTime time)
         {

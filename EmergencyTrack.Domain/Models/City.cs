@@ -13,6 +13,11 @@ namespace EmergencyTrack.Domain.Models
     {
         private City(CityId id) : base(id) { }
 
+        public City(CityId id, Title title): base(id)
+        {
+            Title = title;
+        }
+
         public Title Title { get; private set; }
     }
 }

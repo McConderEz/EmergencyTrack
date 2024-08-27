@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Shared.ValueObjects
 {
-    public class StationNumber: Common.ValueObject
+    public class StationNumber : Common.ValueObject
     {
         public static readonly Regex ValidationRegex = new Regex(
             @"^[\dA-Z]{10}$",

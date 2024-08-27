@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  emergencytrack.api:
+    image: ${DOCKER_REGISTRY-}emergencytrackapi
+    build:
+      context: .
+      dockerfile: EmergencyTrack\Dockerfile
+  mssql_db: 
+    container_name: mssql_emergancy_track
+    image: ${MSSQL_IMAGE:-mcr.microsoft.com/mssql/server:latest} 
+    environment: 
+        ACCEPT_EULA: "Y"
+    volumes:
+        - ssqlsystem:/var/opt/mssql
+    ports:
+        - "1434:1433"
+        

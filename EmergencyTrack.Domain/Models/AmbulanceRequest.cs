@@ -13,6 +13,22 @@ namespace EmergencyTrack.Domain.Models
     {
         private AmbulanceRequest(AmbulanceRequestId id): base(id) { }
 
+        public AmbulanceRequest(
+            AmbulanceRequestId id,
+            RequestDateTime requestDateTime,
+            SickPersonId sickPersonId,
+            SickPerson? sickPerson,
+            IEnumerable<CauseOfRecall> causeOfRecalls,
+            IEnumerable<ProcedurePerformed> procedurePerformeds)
+            :base(id)
+        {
+            RequestDateTime = requestDateTime;
+            SickPersonId = sickPersonId;
+            SickPerson = sickPerson;
+            CauseOfRecalls = causeOfRecalls.ToList() ?? [];
+            ProcedurePerformeds = procedurePerformeds.ToList() ?? [];
+        }
+
         public RequestDateTime RequestDateTime { get; private set; }
         public List<CauseOfRecall> CauseOfRecalls { get; set; } = [];
         public List<ProcedurePerformed> ProcedurePerformeds { get; set; } = [];

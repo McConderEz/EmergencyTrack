@@ -13,6 +13,11 @@ namespace EmergencyTrack.Domain.Models
     {
         private Procedure(ProcedureId id): base(id) { }
 
+        public Procedure(ProcedureId id,Title title) : base(id)
+        {
+            Title = title;
+        }
+
         public Title Title { get; private set; }
     }
 }

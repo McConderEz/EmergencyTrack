@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34818.151
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergencyTrack.Api", "EmergencyTrack\EmergencyTrack.Api.csproj", "{C2A46041-5023-4E65-B654-7D76FDC4E785}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmergencyTrack.Api", "EmergencyTrack\EmergencyTrack.Api.csproj", "{C2A46041-5023-4E65-B654-7D76FDC4E785}"
 	ProjectSection(ProjectDependencies) = postProject
 		{1ABF284F-F188-4D47-AD85-348946DC6D14} = {1ABF284F-F188-4D47-AD85-348946DC6D14}
 		{EC8C4C8A-4E98-4CA4-A6AE-D562CF2245AE} = {EC8C4C8A-4E98-4CA4-A6AE-D562CF2245AE}
 		{F3F8A6A8-8AE8-4823-AED2-46F189DBFA71} = {F3F8A6A8-8AE8-4823-AED2-46F189DBFA71}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergencyTrack.Domain", "EmergencyTrack.Domain\EmergencyTrack.Domain.csproj", "{EC8C4C8A-4E98-4CA4-A6AE-D562CF2245AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmergencyTrack.Domain", "EmergencyTrack.Domain\EmergencyTrack.Domain.csproj", "{EC8C4C8A-4E98-4CA4-A6AE-D562CF2245AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergencyTrack.Application", "EmergencyTrack.Application\EmergencyTrack.Application.csproj", "{F3F8A6A8-8AE8-4823-AED2-46F189DBFA71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmergencyTrack.Application", "EmergencyTrack.Application\EmergencyTrack.Application.csproj", "{F3F8A6A8-8AE8-4823-AED2-46F189DBFA71}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EC8C4C8A-4E98-4CA4-A6AE-D562CF2245AE} = {EC8C4C8A-4E98-4CA4-A6AE-D562CF2245AE}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmergencyTrack.Infrastructure.Mssql", "EmergencyTrack.Infrastructure\EmergencyTrack.Infrastructure.Mssql.csproj", "{1ABF284F-F188-4D47-AD85-348946DC6D14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmergencyTrack.Infrastructure.Mssql", "EmergencyTrack.Infrastructure\EmergencyTrack.Infrastructure.Mssql.csproj", "{1ABF284F-F188-4D47-AD85-348946DC6D14}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F3F8A6A8-8AE8-4823-AED2-46F189DBFA71} = {F3F8A6A8-8AE8-4823-AED2-46F189DBFA71}
 	EndProjectSection
