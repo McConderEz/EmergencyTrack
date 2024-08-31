@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Contracts\DTOs\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Services\" />
     <Folder Include="Validators\" />
     <Folder Include="Abstractions\" />
