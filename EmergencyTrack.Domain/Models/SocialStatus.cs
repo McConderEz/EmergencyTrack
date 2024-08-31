@@ -13,11 +13,16 @@ namespace EmergencyTrack.Domain.Models
     {
         private SocialStatus(SocialStatusId id) : base(id) { }
 
-        public SocialStatus(SocialStatusId id,Status status) : base(id)
+        public SocialStatus(
+            SocialStatusId id,
+            Status status,
+            IEnumerable<SickPerson> sickPersons) : base(id)
         {
             Status = status;
+            SickPersons = sickPersons.ToList() ?? [];
         }
 
         public Status Status { get; private set; }
+        public List<SickPerson> SickPersons { get; private set; } = [];
     }
 }

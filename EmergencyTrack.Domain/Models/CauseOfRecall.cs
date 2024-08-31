@@ -13,12 +13,16 @@ namespace EmergencyTrack.Domain.Models
     {
         private CauseOfRecall(CauseOfRecallId id): base(id) { }
 
-        public CauseOfRecall(CauseOfRecallId id, Cause cause) : base(id)
+        public CauseOfRecall(CauseOfRecallId id, Cause cause, AmbulanceRequestId ambulanceRequestId, AmbulanceRequest ambulanceRequest) : base(id)
         {
             Cause = cause;
+            AmbulanceRequestId = ambulanceRequestId;
+            AmbulanceRequest = ambulanceRequest;
         }
 
         public Cause Cause { get; private set; }
+        public AmbulanceRequestId AmbulanceRequestId { get; private set; }
+        public AmbulanceRequest? AmbulanceRequest { get; private set; }
 
     }
 }

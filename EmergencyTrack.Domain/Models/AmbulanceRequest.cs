@@ -19,12 +19,16 @@ namespace EmergencyTrack.Domain.Models
             SickPersonId sickPersonId,
             SickPerson? sickPerson,
             IEnumerable<CauseOfRecall> causeOfRecalls,
-            IEnumerable<ProcedurePerformed> procedurePerformeds)
+            IEnumerable<ProcedurePerformed> procedurePerformeds,
+            EmergencyStationId emergencyStationId,
+            EmergencyStation emergencyStation)
             :base(id)
         {
             RequestDateTime = requestDateTime;
             SickPersonId = sickPersonId;
             SickPerson = sickPerson;
+            EmergencyStationId = emergencyStationId;
+            EmergencyStation = emergencyStation;
             CauseOfRecalls = causeOfRecalls.ToList() ?? [];
             ProcedurePerformeds = procedurePerformeds.ToList() ?? [];
         }
@@ -34,7 +38,8 @@ namespace EmergencyTrack.Domain.Models
         public List<ProcedurePerformed> ProcedurePerformeds { get; set; } = [];
         public SickPersonId SickPersonId { get; private set; }
         public SickPerson? SickPerson { get; private set; }
-
+        public EmergencyStationId EmergencyStationId { get; private set; }
+        public EmergencyStation? EmergencyStation { get; private set; }
 
     }
 }

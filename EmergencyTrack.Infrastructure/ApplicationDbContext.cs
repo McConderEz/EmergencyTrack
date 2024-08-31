@@ -24,6 +24,10 @@ namespace EmergencyTrack.Infrastructure.Mssql
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+        }
         public DbSet<AmbulanceRequest> AmbulanceRequests { get; set; } = null!;
         public DbSet<CauseOfRecall> CauseOfRecalls { get; set; } = null!;
         public DbSet<City> Cities { get; set; } = null!;

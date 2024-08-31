@@ -13,11 +13,13 @@ namespace EmergencyTrack.Domain.Models
     {
         private City(CityId id) : base(id) { }
 
-        public City(CityId id, Title title): base(id)
+        public City(CityId id, Title title, IEnumerable<District> districts): base(id)
         {
             Title = title;
+            Districts = districts.ToList() ?? [];
         }
 
         public Title Title { get; private set; }
+        public List<District> Districts { get; set; } = [];
     }
 }

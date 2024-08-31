@@ -18,17 +18,25 @@ namespace EmergencyTrack.Domain.Models
             StationNumber stationNumber,
             int countOfemployees,
             PhoneNumber phoneNumber,
-            Address address)
+            Address address,
+            DistrictId districtId,
+            District district,
+            IEnumerable<AmbulanceRequest> ambulanceRequests)
             : base(id)
         {
             StationNumber = stationNumber;
             CountOfEmployees = countOfemployees;
             PhoneNumber = phoneNumber;
             Address = address;
+            DistrictId = districtId;
+            District = district;
+            AmbulanceRequests = ambulanceRequests.ToList() ?? [];
+
         }
 
         public StationNumber StationNumber { get; private set; }
         public DistrictId DistrictId { get; private set; }
+        public District? District { get; private set; }
         //TODO: Переделать в метод
         public int CountOfEmployees { get; private set; }
         public PhoneNumber PhoneNumber { get; private set; }
