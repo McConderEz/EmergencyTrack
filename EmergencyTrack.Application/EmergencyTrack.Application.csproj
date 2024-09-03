@@ -8,13 +8,12 @@
 
   <ItemGroup>
     <Folder Include="Contracts\DTOs\" />
-    <Folder Include="Services\" />
     <Folder Include="Validators\" />
-    <Folder Include="Abstractions\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CSharpFunctionalExtensions" Version="2.42.5" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
   </ItemGroup>
 
   <ItemGroup>
