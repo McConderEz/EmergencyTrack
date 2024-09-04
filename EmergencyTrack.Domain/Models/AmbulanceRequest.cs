@@ -1,4 +1,5 @@
-﻿using EmergencyTrack.Domain.Common;
+﻿using CSharpFunctionalExtensions;
+using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
 using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Models
 {
-    public class AmbulanceRequest: Entity<AmbulanceRequestId>
+    public class AmbulanceRequest: Common.Entity<AmbulanceRequestId>
     {
         private AmbulanceRequest(AmbulanceRequestId id): base(id) { }
 
@@ -34,12 +35,33 @@ namespace EmergencyTrack.Domain.Models
         }
 
         public RequestDateTime RequestDateTime { get; private set; }
-        public List<CauseOfRecall> CauseOfRecalls { get; set; } = [];
-        public List<ProcedurePerformed> ProcedurePerformeds { get; set; } = [];
+        public List<CauseOfRecall> CauseOfRecalls { get; private set; } = [];
+        public List<ProcedurePerformed> ProcedurePerformeds { get; private set; } = [];
         public SickPersonId SickPersonId { get; private set; }
         public SickPerson? SickPerson { get; private set; }
         public EmergencyStationId EmergencyStationId { get; private set; }
         public EmergencyStation? EmergencyStation { get; private set; }
+
+        public Result UpdateMainInfo(
+            RequestDateTime? requestDateTime,
+            SickPersonId? sickPersonId,
+            SickPerson? sickPerson,
+            EmergencyStationId? emergencyStationId,
+            EmergencyStation? emergencyStation)
+        {
+            RequestDateTime = requestDateTime ?? RequestDateTime;
+            SickPersonId = sickPersonId ?? SickPersonId;
+            SickPerson = sickPerson ?? SickPerson;
+            EmergencyStationId = emergencyStationId ?? EmergencyStationId;
+            EmergencyStation = emergencyStation ?? EmergencyStation;
+
+            return Result.Success();
+        }
+
+        public void AddCauseOfRecall(CauseOfRecall causeOfRecall) => CauseOfRecalls.Add(causeOfRecall);
+        public void RemoveCauseOfRecall(CauseOfRecall causeOfRecall) => CauseOfRecalls.Remove(causeOfRecall);
+        public void AddProcedurePerformed(ProcedurePerformed procedurePerformed) => ProcedurePerformeds.Add(procedurePerformed);
+        public void RemoveProcedurePerformed(ProcedurePerformed procedurePerformed) => ProcedurePerformeds.Remove(procedurePerformed);
 
     }
 }

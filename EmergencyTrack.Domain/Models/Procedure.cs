@@ -1,4 +1,5 @@
-﻿using EmergencyTrack.Domain.Common;
+﻿using CSharpFunctionalExtensions;
+using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
 using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Models
 {
-    public class Procedure: Entity<ProcedureId>
+    public class Procedure: Common.Entity<ProcedureId>
     {
         private Procedure(ProcedureId id): base(id) { }
 
@@ -21,5 +22,15 @@ namespace EmergencyTrack.Domain.Models
 
         public Title Title { get; private set; }
         public List<ProcedurePerformed> ProcedurePerformeds { get; private set; } = [];
+
+        public Result UpdateMainInfo(Title? title)
+        {
+            Title = title ?? Title;
+
+            return Result.Success();
+        }
+
+        public void AddProcedurePerformed(ProcedurePerformed procedurePerformed) => ProcedurePerformeds.Add(procedurePerformed);
+        public void RemoveProcedurePerformed(ProcedurePerformed procedurePerformed) => ProcedurePerformeds.Remove(procedurePerformed);
     } 
 }

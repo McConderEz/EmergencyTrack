@@ -1,4 +1,5 @@
-﻿using EmergencyTrack.Domain.Common;
+﻿using CSharpFunctionalExtensions;
+using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
 using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Models
 {
-    public class City: Entity<CityId>
+    public class City: Common.Entity<CityId>
     {
         private City(CityId id) : base(id) { }
 
@@ -20,6 +21,16 @@ namespace EmergencyTrack.Domain.Models
         }
 
         public Title Title { get; private set; }
-        public List<District> Districts { get; set; } = [];
+        public List<District> Districts { get; private set; } = [];
+
+        public Result UpdateMainInfo(Title? title)
+        {
+            Title = title ?? Title;
+
+            return Result.Success();
+        }
+
+        public void AddDistrict(District district) => Districts.Add(district);
+        public void RemoveDistrict(District district) => Districts.Remove(district);
     }
 }

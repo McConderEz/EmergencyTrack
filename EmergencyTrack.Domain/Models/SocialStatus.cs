@@ -1,4 +1,5 @@
-﻿using EmergencyTrack.Domain.Common;
+﻿using CSharpFunctionalExtensions;
+using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
 using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Models
 {
-    public class SocialStatus: Entity<SocialStatusId>
+    public class SocialStatus: Common.Entity<SocialStatusId>
     {
         private SocialStatus(SocialStatusId id) : base(id) { }
 
@@ -24,5 +25,15 @@ namespace EmergencyTrack.Domain.Models
 
         public Status Status { get; private set; }
         public List<SickPerson> SickPersons { get; private set; } = [];
+
+        public Result UpdateMainInfo(Status? status)
+        {
+            Status = status ?? Status;
+
+            return Result.Success();
+        }
+
+        public void AddSickPerson(SickPerson sickPerson) => SickPersons.Add(sickPerson);
+        public void RemoveSickPerson(SickPerson sickPerson) => SickPersons.Remove(sickPerson);
     }
 }

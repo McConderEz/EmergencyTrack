@@ -1,4 +1,5 @@
-﻿using EmergencyTrack.Domain.Common;
+﻿using CSharpFunctionalExtensions;
+using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
 using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Models
 {
-    public class EmergencyStation: Entity<EmergencyStationId>
+    public class EmergencyStation: Common.Entity<EmergencyStationId>
     {
         private EmergencyStation(EmergencyStationId id) : base(id) { }
 
@@ -41,7 +42,26 @@ namespace EmergencyTrack.Domain.Models
         public int CountOfEmployees { get; private set; }
         public PhoneNumber PhoneNumber { get; private set; }
         public Address Address { get; private set; }
+        public List<AmbulanceRequest> AmbulanceRequests { get; private set; } = [];
 
-        public List<AmbulanceRequest> AmbulanceRequests { get; set; } = [];
+        public Result UpdateMainInfo(
+            StationNumber? stationNumber,
+            DistrictId? districtId,
+            District? district,
+            PhoneNumber? phoneNumber,
+            Address? address)
+        {
+            StationNumber = stationNumber ?? StationNumber;
+            DistrictId = districtId ?? DistrictId;
+            District = district ?? District;
+            PhoneNumber = phoneNumber ?? PhoneNumber;
+            Address = address ?? Address;
+
+            return Result.Success();
+        }
+
+        public void AddAmbulanceRequest(AmbulanceRequest ambulanceRequest) => AmbulanceRequests.Add(ambulanceRequest);
+        public void RemoveAmbulanceRequest(AmbulanceRequest ambulanceRequest) => AmbulanceRequests.Remove(ambulanceRequest);
+
     }
 }

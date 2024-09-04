@@ -1,4 +1,5 @@
-﻿using EmergencyTrack.Domain.Common;
+﻿using CSharpFunctionalExtensions;
+using EmergencyTrack.Domain.Common;
 using EmergencyTrack.Domain.Shared.Ids;
 using EmergencyTrack.Domain.Shared.ValueObjects;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Domain.Models
 {
-    public class CauseOfRecall: Entity<CauseOfRecallId>
+    public class CauseOfRecall: Common.Entity<CauseOfRecallId>
     {
         private CauseOfRecall(CauseOfRecallId id): base(id) { }
 
@@ -23,6 +24,15 @@ namespace EmergencyTrack.Domain.Models
         public Cause Cause { get; private set; }
         public AmbulanceRequestId AmbulanceRequestId { get; private set; }
         public AmbulanceRequest? AmbulanceRequest { get; private set; }
+
+        public Result UpdateMainInfo(Cause? cause, AmbulanceRequestId? ambulanceRequestId, AmbulanceRequest? ambulanceRequest)
+        {
+            Cause = cause ?? Cause;
+            AmbulanceRequestId = ambulanceRequestId ?? AmbulanceRequestId;
+            AmbulanceRequest = ambulanceRequest ?? AmbulanceRequest;
+
+            return Result.Success();
+        }
 
     }
 }

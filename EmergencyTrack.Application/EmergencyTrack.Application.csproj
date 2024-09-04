@@ -7,8 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\DTOs\" />
-    <Folder Include="Validators\" />
+    <Folder Include="Contracts\DTOs\AmbulanceRequest\" />
+    <Folder Include="Contracts\DTOs\CauseOfRecall\" />
+    <Folder Include="Contracts\DTOs\City\" />
+    <Folder Include="Contracts\DTOs\District\" />
+    <Folder Include="Contracts\DTOs\EmergencyStation\" />
+    <Folder Include="Contracts\DTOs\ProcedurePerformed\" />
+    <Folder Include="Contracts\DTOs\Procedure\" />
+    <Folder Include="Contracts\DTOs\SickPerson\" />
+    <Folder Include="Contracts\DTOs\SocialStatus\" />
+    <Folder Include="Validators\AmbulanceRequestValidators\" />
+    <Folder Include="Validators\CauseOfRecallValidators\" />
+    <Folder Include="Validators\CityValidators\" />
+    <Folder Include="Validators\DistrictValidators\" />
+    <Folder Include="Validators\EmergencyStationValidators\" />
+    <Folder Include="Validators\ProcedurePerformedValidators\" />
+    <Folder Include="Validators\ProcedureValidators\" />
+    <Folder Include="Validators\SickPersonValidators\" />
+    <Folder Include="Validators\SocialStatusValidators\" />
   </ItemGroup>
 
   <ItemGroup>
