@@ -1,5 +1,7 @@
 ﻿using EmergencyTrack.Application.Abstractions;
 using EmergencyTrack.Application.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,8 @@ namespace EmergencyTrack.Application
             services.AddScoped<IProcedureService, ProcedureService>();
             services.AddScoped<ISickPersonService, SickPersonService>();
             services.AddScoped<ISocialStatusService, SocialStatusService>();
+
+            services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
 
             return services;
         }

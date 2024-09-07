@@ -21,9 +21,9 @@ namespace EmergencyTrack.Domain.Models
             AmbulanceRequest = ambulanceRequest;
         }
 
-        public Cause Cause { get; private set; }
-        public AmbulanceRequestId AmbulanceRequestId { get; private set; }
-        public AmbulanceRequest? AmbulanceRequest { get; private set; }
+        public Cause Cause { get; set; }
+        public AmbulanceRequestId AmbulanceRequestId { get; set; }
+        public AmbulanceRequest? AmbulanceRequest { get; set; }
 
         public Result UpdateMainInfo(Cause? cause, AmbulanceRequestId? ambulanceRequestId, AmbulanceRequest? ambulanceRequest)
         {

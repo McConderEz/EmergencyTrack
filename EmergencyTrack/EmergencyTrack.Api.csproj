@@ -10,12 +10,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Views\AmbulanceRequest\" />
+    <Folder Include="Views\CauseOfRecall\" />
+    <Folder Include="Views\City\" />
+    <Folder Include="Views\District\" />
+    <Folder Include="Views\EmergencyStation\" />
+    <Folder Include="Views\Procedure\" />
+    <Folder Include="Views\ProcedurePerformed\" />
+    <Folder Include="Views\SickPerson\" />
+    <Folder Include="Views\SocialStatus\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CSharpFunctionalExtensions" Version="2.42.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

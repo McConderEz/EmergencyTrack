@@ -1,0 +1,50 @@
+﻿@page "/ambulancerequests/details"
+
+@using EmergencyTrack.Domain.Shared.Ids
+@using Microsoft.EntityFrameworkCore
+@using EmergencyTrack.Domain.Models
+@inject IDbContextFactory<EmergencyTrack.Infrastructure.Mssql.ApplicationDbContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>AmbulanceRequest</h4>
+    <hr />
+    @if (ambulancerequest is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">SickPersonId</dt>
+            <dd class="col-sm-10">@ambulancerequest.SickPersonId</dd>
+            <dt class="col-sm-2">EmergencyStationId</dt>
+            <dd class="col-sm-10">@ambulancerequest.EmergencyStationId</dd>
+        </dl>
+        <div>
+            <a href="@($"/ambulancerequests/edit?id={ambulancerequest.Id}")">Edit</a> |
+            <a href="@($"/ambulancerequests")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    AmbulanceRequest? ambulancerequest;
+
+    [SupplyParameterFromQuery]
+    public AmbulanceRequestId Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        ambulancerequest = await context.AmbulanceRequests.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (ambulancerequest is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

@@ -8,7 +8,7 @@ namespace EmergencyTrack.Domain.Common
 {
     public class BaseId<TId>: ValueObject where TId: notnull
     {
-        public Guid Id { get; }
+        public Guid Id { get; set; }
         protected BaseId(Guid id) => Id = id;
 
         public static TId NewGuid() => Create(Guid.NewGuid());

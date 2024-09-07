@@ -20,8 +20,8 @@ namespace EmergencyTrack.Domain.Models
             Districts = districts.ToList() ?? [];
         }
 
-        public Title Title { get; private set; }
-        public List<District> Districts { get; private set; } = [];
+        public Title Title { get; set; }
+        public List<District> Districts { get; set; } = [];
 
         public Result UpdateMainInfo(Title? title)
         {

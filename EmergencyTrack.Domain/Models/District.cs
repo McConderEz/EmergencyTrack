@@ -22,10 +22,10 @@ namespace EmergencyTrack.Domain.Models
             EmergencyStations = emergencyStations.ToList() ?? [];
         }
 
-        public Title Title { get; private set; }
-        public CityId CityId { get; private set; }
-        public City? City { get; private set; }
-        public List<EmergencyStation> EmergencyStations { get; private set; } = [];
+        public Title Title { get; set; }
+        public CityId CityId { get; set; }
+        public City? City { get; set; }
+        public List<EmergencyStation> EmergencyStations { get; set; } = [];
 
         public Result UpdateMainInfo(Title? title, CityId? cityId, City? city)
         {

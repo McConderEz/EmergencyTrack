@@ -20,8 +20,8 @@ namespace EmergencyTrack.Domain.Models
             ProcedurePerformeds = procedurePerformeds.ToList() ?? [];
         }
 
-        public Title Title { get; private set; }
-        public List<ProcedurePerformed> ProcedurePerformeds { get; private set; } = [];
+        public Title Title { get; set; }
+        public List<ProcedurePerformed> ProcedurePerformeds { get; set; } = [];
 
         public Result UpdateMainInfo(Title? title)
         {

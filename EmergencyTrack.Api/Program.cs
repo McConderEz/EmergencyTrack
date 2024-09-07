@@ -1,33 +1,23 @@
-using EmergencyTrack;
-using EmergencyTrack.Infrastructure.Mssql;
 using EmergencyTrack.Api.Components;
 using EmergencyTrack.Application;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.EntityFrameworkCore;
+using EmergencyTrack.Infrastructure.Mssql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
+// Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddRazorPages();
-
 builder.Services.AddInfrastructure(builder.Configuration)
-    .AddApplication()
-    .AddQuickGridEntityFrameworkAdapter();
-
-builder.Services.AddFluentValidationAutoValidation();
-
-
+    .AddApplication();
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
     app.UseMigrationsEndPoint();
 }
@@ -36,7 +26,6 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
-
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

@@ -34,13 +34,13 @@ namespace EmergencyTrack.Domain.Models
             AmbulanceRequests = ambulanceRequests.ToList() ?? [];
         }
 
-        public FullName FullName { get; private set; }
-        public BirthDate BirthDate { get;  private set; }
-        public SocialStatusId SocialStatusId { get; private set; }
-        public SocialStatus? SocialStatus { get; private set; }
-        public PhoneNumber PhoneNumber { get; private set; }
-        public Address Address { get; private set; }
-        public List<AmbulanceRequest> AmbulanceRequests { get; private set; } = [];
+        public FullName FullName { get; set; }
+        public BirthDate BirthDate { get; set; }
+        public SocialStatusId SocialStatusId { get; set; }
+        public SocialStatus? SocialStatus { get; set; }
+        public PhoneNumber PhoneNumber { get; set; }
+        public Address Address { get; set; }
+        public List<AmbulanceRequest> AmbulanceRequests { get; set; } = [];
 
         public Result UpdateMainInfo(
             FullName? fullName,

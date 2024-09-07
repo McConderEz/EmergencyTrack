@@ -23,8 +23,8 @@ namespace EmergencyTrack.Domain.Models
             SickPersons = sickPersons.ToList() ?? [];
         }
 
-        public Status Status { get; private set; }
-        public List<SickPerson> SickPersons { get; private set; } = [];
+        public Status Status { get; set; }
+        public List<SickPerson> SickPersons { get; set; } = [];
 
         public Result UpdateMainInfo(Status? status)
         {

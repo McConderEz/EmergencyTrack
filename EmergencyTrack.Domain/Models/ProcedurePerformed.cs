@@ -27,10 +27,10 @@ namespace EmergencyTrack.Domain.Models
             AmbulanceRequest = ambulanceRequest;
         }
 
-        public Price Price { get; private set; }
-        public List<Procedure> Procedures { get; private set; } = [];
-        public AmbulanceRequestId AmbulanceRequestId { get; private set; }
-        public AmbulanceRequest? AmbulanceRequest { get; private set; }
+        public Price Price { get; set; }
+        public List<Procedure> Procedures { get; set; } = [];
+        public AmbulanceRequestId AmbulanceRequestId { get; set; }
+        public AmbulanceRequest? AmbulanceRequest { get; set; }
 
         public Result UpdateInfo(Price? price, AmbulanceRequestId? ambulanceRequestId, AmbulanceRequest? ambulanceRequest)
         {

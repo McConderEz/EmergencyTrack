@@ -1,0 +1,38 @@
+﻿@page "/ambulancerequests"
+
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using EmergencyTrack.Domain.Models
+@using EmergencyTrack.Infrastructure.Mssql
+@inject IDbContextFactory<EmergencyTrack.Infrastructure.Mssql.ApplicationDbContext> DbFactory
+@implements IAsyncDisposable
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="ambulancerequests/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.AmbulanceRequests">
+    <PropertyColumn Property="ambulancerequest => ambulancerequest.SickPersonId" />
+    <PropertyColumn Property="ambulancerequest => ambulancerequest.EmergencyStationId" />
+
+    <TemplateColumn Context="ambulancerequest">
+        <a href="@($"ambulancerequests/edit?id={ambulancerequest.Id}")">Edit</a> |
+        <a href="@($"ambulancerequests/details?id={ambulancerequest.Id}")">Details</a> |
+        <a href="@($"ambulancerequests/delete?id={ambulancerequest.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    ApplicationDbContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

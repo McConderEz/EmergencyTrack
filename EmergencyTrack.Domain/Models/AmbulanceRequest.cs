@@ -34,13 +34,13 @@ namespace EmergencyTrack.Domain.Models
             ProcedurePerformeds = procedurePerformeds.ToList() ?? [];
         }
 
-        public RequestDateTime RequestDateTime { get; private set; }
-        public List<CauseOfRecall> CauseOfRecalls { get; private set; } = [];
-        public List<ProcedurePerformed> ProcedurePerformeds { get; private set; } = [];
-        public SickPersonId SickPersonId { get; private set; }
-        public SickPerson? SickPerson { get; private set; }
-        public EmergencyStationId EmergencyStationId { get; private set; }
-        public EmergencyStation? EmergencyStation { get; private set; }
+        public RequestDateTime RequestDateTime { get; set; }
+        public List<CauseOfRecall> CauseOfRecalls { get; set; } = [];
+        public List<ProcedurePerformed> ProcedurePerformeds { get; set; } = [];
+        public SickPersonId SickPersonId { get; set; }
+        public SickPerson? SickPerson { get; set; }
+        public EmergencyStationId EmergencyStationId { get; set; }
+        public EmergencyStation? EmergencyStation { get; set; }
 
         public Result UpdateMainInfo(
             RequestDateTime? requestDateTime,

@@ -7,18 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\AmbulanceRequestValidators\" />
-    <Folder Include="Validators\CauseOfRecallValidators\" />
-    <Folder Include="Validators\CityValidators\" />
-    <Folder Include="Validators\DistrictValidators\" />
-    <Folder Include="Validators\EmergencyStationValidators\" />
-    <Folder Include="Validators\ProcedurePerformedValidators\" />
-    <Folder Include="Validators\ProcedureValidators\" />
-    <Folder Include="Validators\SickPersonValidators\" />
-    <Folder Include="Validators\SocialStatusValidators\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="CSharpFunctionalExtensions" Version="2.42.5" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
   </ItemGroup>

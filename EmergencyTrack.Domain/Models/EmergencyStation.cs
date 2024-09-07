@@ -35,14 +35,14 @@ namespace EmergencyTrack.Domain.Models
 
         }
 
-        public StationNumber StationNumber { get; private set; }
-        public DistrictId DistrictId { get; private set; }
-        public District? District { get; private set; }
+        public StationNumber StationNumber { get; set; }
+        public DistrictId DistrictId { get; set; }
+        public District? District { get; set; }
         //TODO: Переделать в метод
-        public int CountOfEmployees { get; private set; }
-        public PhoneNumber PhoneNumber { get; private set; }
-        public Address Address { get; private set; }
-        public List<AmbulanceRequest> AmbulanceRequests { get; private set; } = [];
+        public int CountOfEmployees { get; set; }
+        public PhoneNumber PhoneNumber { get; set; }
+        public Address Address { get; set; }
+        public List<AmbulanceRequest> AmbulanceRequests { get; set; } = [];
 
         public Result UpdateMainInfo(
             StationNumber? stationNumber,
