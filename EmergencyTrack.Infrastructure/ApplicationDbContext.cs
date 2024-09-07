@@ -19,9 +19,14 @@ namespace EmergencyTrack.Infrastructure.Mssql
             _configuration = configuration;
         }
 
+        public ApplicationDbContext(): base() { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+            if (_configuration == null)
+                optionsBuilder.UseSqlServer("data source=(localdb)\\MSSQLLocalDB;Initial Catalog=emergencyTrack;Integrated Security=True;");
+            else
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

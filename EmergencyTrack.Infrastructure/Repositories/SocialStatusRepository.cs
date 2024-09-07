@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EmergencyTrack.Infrastructure.Mssql.Repositories
 {
-    public class SocialStatusRepository: ISocialStatusRepository
+    public class SocialStatusRepository : ISocialStatusRepository
     {
         private readonly ApplicationDbContext _context;
 

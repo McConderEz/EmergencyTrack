@@ -14,10 +14,10 @@ namespace EmergencyTrack.Domain.Models
     {
         private Procedure(ProcedureId id): base(id) { }
 
-        public Procedure(ProcedureId id,Title title, IEnumerable<ProcedurePerformed> procedurePerformeds) : base(id)
+        public Procedure(ProcedureId id,Title title, List<ProcedurePerformed> procedurePerformeds) : base(id)
         {
             Title = title;
-            ProcedurePerformeds = procedurePerformeds.ToList() ?? [];
+            ProcedurePerformeds = procedurePerformeds ?? [];
         }
 
         public Title Title { get; set; }

@@ -17,12 +17,12 @@ namespace EmergencyTrack.Domain.Models
         public ProcedurePerformed(
             ProcedurePerformedId id,
             Price price,
-            IEnumerable<Procedure> procedures,
+            List<Procedure> procedures,
             AmbulanceRequestId ambulanceRequestId, 
             AmbulanceRequest ambulanceRequest) : base(id)
         {
             Price = price;
-            Procedures = procedures.ToList() ?? [];
+            Procedures = procedures ?? [];
             AmbulanceRequestId = ambulanceRequestId;
             AmbulanceRequest = ambulanceRequest;
         }

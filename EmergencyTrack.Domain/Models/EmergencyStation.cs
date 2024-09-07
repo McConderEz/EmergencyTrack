@@ -22,7 +22,7 @@ namespace EmergencyTrack.Domain.Models
             Address address,
             DistrictId districtId,
             District district,
-            IEnumerable<AmbulanceRequest> ambulanceRequests)
+            List<AmbulanceRequest> ambulanceRequests)
             : base(id)
         {
             StationNumber = stationNumber;
@@ -31,7 +31,7 @@ namespace EmergencyTrack.Domain.Models
             Address = address;
             DistrictId = districtId;
             District = district;
-            AmbulanceRequests = ambulanceRequests.ToList() ?? [];
+            AmbulanceRequests = ambulanceRequests ?? [];
 
         }
 

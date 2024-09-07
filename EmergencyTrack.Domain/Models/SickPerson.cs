@@ -22,7 +22,7 @@ namespace EmergencyTrack.Domain.Models
             SocialStatus? socialStatus,
             PhoneNumber phoneNumber,
             Address address,
-            IEnumerable<AmbulanceRequest> ambulanceRequests)
+            List<AmbulanceRequest> ambulanceRequests)
             : base(id)
         {
             FullName = fullName;
@@ -31,7 +31,7 @@ namespace EmergencyTrack.Domain.Models
             SocialStatus = socialStatus;
             PhoneNumber = phoneNumber;
             Address = address;
-            AmbulanceRequests = ambulanceRequests.ToList() ?? [];
+            AmbulanceRequests = ambulanceRequests ?? [];
         }
 
         public FullName FullName { get; set; }

@@ -43,16 +43,6 @@ namespace EmergencyTrack.Infrastructure.Mssql.Configurations
 
             builder.ComplexProperty(e => e.Address, ab =>
             {
-                ab.Property(s => s.State)
-                    .HasMaxLength(Constraints.MAX_VALUE_LENGTH)
-                    .HasColumnName("state")
-                    .IsRequired();
-
-                ab.Property(s => s.City)
-                    .HasMaxLength(Constraints.MAX_VALUE_LENGTH)
-                    .HasColumnName("city")
-                    .IsRequired();
-
                 ab.Property(s => s.ZipCode)
                     .HasMaxLength(Constraints.MAX_VALUE_LENGTH)
                     .HasColumnName("zip_code")

@@ -21,7 +21,7 @@ namespace EmergencyTrack.Domain.Shared.ValueObjects
         public static Result<BirthDate> Create(DateOnly date)
         {
             //TODO: проверить 
-            if (date > DateOnly.FromDayNumber(1))
+            if (date > DateOnly.FromDateTime(DateTime.Now))
                 return Result.Failure<BirthDate>("date is invalid");
 
             return Result.Success(new BirthDate(date));

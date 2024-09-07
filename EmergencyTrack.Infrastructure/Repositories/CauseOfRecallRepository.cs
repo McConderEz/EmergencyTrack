@@ -52,7 +52,7 @@ namespace EmergencyTrack.Infrastructure.Mssql.Repositories
         public async Task<Result<CauseOfRecall>> GetById(CauseOfRecallId id, CancellationToken cancellationToken = default)
         {
             var entity = await _context.CauseOfRecalls
-                .Include(a => a.AmbulanceRequest)
+                .Include(a => a.AmbulanceRequests)
                     .ThenInclude(e => e.EmergencyStation)
                         .ThenInclude(e => e.District)
                             .ThenInclude(d => d.City)

@@ -38,9 +38,7 @@ namespace EmergencyTrack.Infrastructure.Mssql.Configurations
 
 
             builder.HasMany(x => x.CauseOfRecalls)
-                .WithOne(c => c.AmbulanceRequest)
-                .HasForeignKey(c => c.AmbulanceRequestId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .WithMany(c => c.AmbulanceRequests);
 
             builder.HasMany(x => x.ProcedurePerformeds)
                 .WithOne(p => p.AmbulanceRequest)

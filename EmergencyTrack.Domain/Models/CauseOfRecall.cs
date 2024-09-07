@@ -14,22 +14,18 @@ namespace EmergencyTrack.Domain.Models
     {
         private CauseOfRecall(CauseOfRecallId id): base(id) { }
 
-        public CauseOfRecall(CauseOfRecallId id, Cause cause, AmbulanceRequestId ambulanceRequestId, AmbulanceRequest ambulanceRequest) : base(id)
+        public CauseOfRecall(CauseOfRecallId id, Cause cause,List<AmbulanceRequest> ambulanceRequests) : base(id)
         {
             Cause = cause;
-            AmbulanceRequestId = ambulanceRequestId;
-            AmbulanceRequest = ambulanceRequest;
+            AmbulanceRequests = ambulanceRequests ?? [];
         }
 
         public Cause Cause { get; set; }
-        public AmbulanceRequestId AmbulanceRequestId { get; set; }
-        public AmbulanceRequest? AmbulanceRequest { get; set; }
+        public List<AmbulanceRequest> AmbulanceRequests { get; set; } = [];
 
-        public Result UpdateMainInfo(Cause? cause, AmbulanceRequestId? ambulanceRequestId, AmbulanceRequest? ambulanceRequest)
+        public Result UpdateMainInfo(Cause? cause)
         {
             Cause = cause ?? Cause;
-            AmbulanceRequestId = ambulanceRequestId ?? AmbulanceRequestId;
-            AmbulanceRequest = ambulanceRequest ?? AmbulanceRequest;
 
             return Result.Success();
         }

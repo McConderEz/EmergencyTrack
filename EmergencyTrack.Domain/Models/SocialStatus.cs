@@ -17,10 +17,10 @@ namespace EmergencyTrack.Domain.Models
         public SocialStatus(
             SocialStatusId id,
             Status status,
-            IEnumerable<SickPerson> sickPersons) : base(id)
+            List<SickPerson> sickPersons) : base(id)
         {
             Status = status;
-            SickPersons = sickPersons.ToList() ?? [];
+            SickPersons = sickPersons ?? [];
         }
 
         public Status Status { get; set; }

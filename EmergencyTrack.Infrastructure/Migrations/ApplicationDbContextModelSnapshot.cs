@@ -23,6 +23,21 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AmbulanceRequestCauseOfRecall", b =>
+                {
+                    b.Property<Guid>("AmbulanceRequestsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CauseOfRecallsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AmbulanceRequestsId", "CauseOfRecallsId");
+
+                    b.HasIndex("CauseOfRecallsId");
+
+                    b.ToTable("AmbulanceRequestCauseOfRecall");
+                });
+
             modelBuilder.Entity("EmergencyTrack.Domain.Models.AmbulanceRequest", b =>
                 {
                     b.Property<Guid>("Id")
@@ -57,9 +72,6 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AmbulanceRequestId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.ComplexProperty<Dictionary<string, object>>("Cause", "EmergencyTrack.Domain.Models.CauseOfRecall.Cause#Cause", b1 =>
                         {
                             b1.IsRequired();
@@ -72,8 +84,6 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
                         });
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AmbulanceRequestId");
 
                     b.ToTable("cause_of_recall", (string)null);
                 });
@@ -139,18 +149,6 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
                     b.ComplexProperty<Dictionary<string, object>>("Address", "EmergencyTrack.Domain.Models.EmergencyStation.Address#Address", b1 =>
                         {
                             b1.IsRequired();
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)")
-                                .HasColumnName("city");
-
-                            b1.Property<string>("State")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)")
-                                .HasColumnName("state");
 
                             b1.Property<string>("Street")
                                 .IsRequired()
@@ -251,18 +249,6 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
                         {
                             b1.IsRequired();
 
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)")
-                                .HasColumnName("city");
-
-                            b1.Property<string>("State")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)")
-                                .HasColumnName("state");
-
                             b1.Property<string>("Street")
                                 .IsRequired()
                                 .HasMaxLength(100)
@@ -361,6 +347,21 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
                     b.ToTable("ProcedureProcedurePerformed");
                 });
 
+            modelBuilder.Entity("AmbulanceRequestCauseOfRecall", b =>
+                {
+                    b.HasOne("EmergencyTrack.Domain.Models.AmbulanceRequest", null)
+                        .WithMany()
+                        .HasForeignKey("AmbulanceRequestsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EmergencyTrack.Domain.Models.CauseOfRecall", null)
+                        .WithMany()
+                        .HasForeignKey("CauseOfRecallsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EmergencyTrack.Domain.Models.AmbulanceRequest", b =>
                 {
                     b.HasOne("EmergencyTrack.Domain.Models.EmergencyStation", "EmergencyStation")
@@ -378,17 +379,6 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
                     b.Navigation("EmergencyStation");
 
                     b.Navigation("SickPerson");
-                });
-
-            modelBuilder.Entity("EmergencyTrack.Domain.Models.CauseOfRecall", b =>
-                {
-                    b.HasOne("EmergencyTrack.Domain.Models.AmbulanceRequest", "AmbulanceRequest")
-                        .WithMany("CauseOfRecalls")
-                        .HasForeignKey("AmbulanceRequestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AmbulanceRequest");
                 });
 
             modelBuilder.Entity("EmergencyTrack.Domain.Models.District", b =>
@@ -452,8 +442,6 @@ namespace EmergencyTrack.Infrastructure.Mssql.Migrations
 
             modelBuilder.Entity("EmergencyTrack.Domain.Models.AmbulanceRequest", b =>
                 {
-                    b.Navigation("CauseOfRecalls");
-
                     b.Navigation("ProcedurePerformeds");
                 });
 
